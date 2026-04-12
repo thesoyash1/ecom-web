@@ -4,7 +4,7 @@ import logo from "../assets/slogo.jpg"
 
 const HeaderContent = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md px-5 py-1">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white px-5 py-1">
       <div className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
         
         {/* LEFT: Logo */}

@@ -39,7 +39,7 @@ const MegaMenu = () => {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <div className="border-b border-gray-100 py-3 flex justify-center gap-10">
+    <div className="sticky top-18 border-b border-gray-100 py-3 flex justify-center gap-10 bg-white">
       {megaMenuData.map((item) => (
         <div
           key={item.id}
