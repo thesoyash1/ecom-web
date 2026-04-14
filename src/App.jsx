@@ -3,15 +3,15 @@ import { useState } from 'react'
 import HomePage from '../pages/HomePage';
 import { CartProvider } from '../context/CartContext';
 import Reduce from '../components/Reduce';
+import Todo from '../components/Todo';
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <CartProvider>
-      
      <HomePage />
-    </CartProvider>
+    </CartProvider>    
   )
 }
 

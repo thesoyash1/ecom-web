@@ -4,7 +4,11 @@ import { CartContext } from "../context/CartContext";
 const ProductCard = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [cart, setCart]=useContext(CartContext);
+  const{ cart, setCart}=useContext(CartContext);
+
+console.log("product", products)
+  const isInCart=cart.some(item=>item.id == products.id);
+  console.log("isis", isInCart)
 
   const getProducts = async () => {
     try {
@@ -23,7 +27,15 @@ const ProductCard = () => {
   }, []);
 
   if (loading) return <h2 className="text-center mt-5">Loading...</h2>;
-
+  
+  const cartUpdate=(products)=>{
+         setCart((prev)=>{
+             const productUpdate=[...prev, products];
+             localStorage.setItem("cart",JSON.stringify(productUpdate));
+             return productUpdate;
+         })
+ 
+     }
   return (
     <div className="p-5">
       <h2 className="text-2xl font-bold mb-5 text-center">Products</h2>
@@ -37,14 +49,6 @@ const ProductCard = () => {
     </div>
   );
 };
- const cartUpdate=(products)=>{
-        setCart((prev)=>{
-            const productUpdate=[...prev, products];
-            localStorage.setItem("cart",JSON.stringify(productUpdate));
-            return productUpdate;
-        })
-
-    }
 export const ProductNewCard = ({ product, onAdd }) => {
 
    

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import SearchBar from "./SearchBar";
 import logo from "../assets/slogo.jpg"
+import { CartContext } from "../context/CartContext";
 
 const HeaderContent = () => {
+  const {cart}=useContext(CartContext)
+  console.log("carttt", cart);
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white px-5 py-1">
       <div className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
@@ -84,7 +87,7 @@ const HeaderContent = () => {
 
               {/* Cart Badge */}
               <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-gray-600 text-[10px] font-bold text-white">
-                0
+                {cart.length}
               </span>
             </div>
 

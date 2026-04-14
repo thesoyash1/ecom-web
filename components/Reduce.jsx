@@ -8,7 +8,7 @@ const Reduce=()=>{
     const reducer=(state,action)=>{
         switch (action.type){
             case 'increment' : 
-            return {count : state.count + 1};
+            return {count : state.count + 1};   
 
             case 'decrement' :
             return {count : state.count - 1};
@@ -22,6 +22,7 @@ const Reduce=()=>{
     return(
         <>
         <h1>Count is {state.count}</h1>
+        {state}
         <button onClick={()=> dispatch({type : "increment"})}>incremwnt </button>
         <button onClick={()=> dispatch({type : "decrement"})}>decrement </button>
         <button onClick={()=> dispatch({type : "reset"})}>reset </button>
