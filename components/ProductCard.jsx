@@ -6,9 +6,7 @@ const ProductCard = () => {
   const [loading, setLoading] = useState(true);
   const{ cart, setCart}=useContext(CartContext);
 
-console.log("product", products)
-  const isInCart=cart.some(item=>item.id == products.id);
-  console.log("isis", isInCart)
+
 
   const getProducts = async () => {
     try {
@@ -50,6 +48,11 @@ console.log("product", products)
   );
 };
 export const ProductNewCard = ({ product, onAdd }) => {
+  const {cart}=useContext(CartContext);
+console.log("curta", cart)
+  // console.log("product-",product)
+  const isInCart=cart.some(item=>item.id === product.id);
+  console.log("isis", isInCart)
 
    
   return (
@@ -71,14 +74,24 @@ export const ProductNewCard = ({ product, onAdd }) => {
       <p className="text-green-600 font-bold text-lg mb-3">
         ${product.price}
       </p>
-
       {/* BUTTON */}
+      {!isInCart && (
+
       <button
         className="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600"
-        onClick={() => onAdd(product)}
+         onClick={() => onAdd(product)}
       >
         Add to Cart
       </button>
+      )}
+      {isInCart && (
+         <button
+        className="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600"
+        disabled
+      >
+        Added to Cart
+      </button>
+      )}
     </div>
   );
 };

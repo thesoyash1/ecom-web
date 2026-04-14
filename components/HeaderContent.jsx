@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import SearchBar from "./SearchBar";
 import logo from "../assets/slogo.jpg"
 import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const HeaderContent = () => {
   const {cart}=useContext(CartContext)
+  const navigate=useNavigate();
   console.log("carttt", cart);
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white px-5 py-1">
@@ -28,7 +30,7 @@ const HeaderContent = () => {
           {/* Account */}
           <button
             aria-label="Account"
-            className="flex items-center space-x-1 transition-colors hover:text-blue-600"
+            className="flex items-center space-x-1 transition-colors hover:text-blue-600 cursor-pointer"
           >
             <svg
               viewBox="0 0 48 48"
@@ -55,7 +57,8 @@ const HeaderContent = () => {
           {/* Cart */}
           <button
             aria-label="Cart"
-            className="relative flex items-center space-x-1 transition-colors hover:text-blue-600"
+            className="relative flex items-center space-x-1 transition-colors hover:text-blue-600 cursor-pointer"
+            onClick={()=> navigate('/add-to-cart')}
           >
             <div className="relative">
               <svg
