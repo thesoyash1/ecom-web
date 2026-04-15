@@ -11,7 +11,6 @@ function Header() {
       <AnnoucementBar />
       <HeaderContent />
       <MegaMenu />  
-      <ProductCard />
     </div>
   )
 }
