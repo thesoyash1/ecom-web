@@ -71,7 +71,7 @@ const MegaMenu = () => {
               {item.children.map((child) => (
                 <a
                   key={child.id}
-                  href={child.link}
+                  href={child.link} 
                   className="block px-2 py-1 hover:bg-gray-100 rounded"
                 >
                   {child.label}
