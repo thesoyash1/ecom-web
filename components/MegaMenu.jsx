@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const megaMenuData = [
   {
@@ -69,13 +70,13 @@ const MegaMenu = () => {
           {item.children && hovered === item.id && (
             <div className="absolute top-full left-0 bg-white shadow-md mt-0 min-w-[180px] p-3 rounded">
               {item.children.map((child) => (
-                <a
+                <NavLink
                   key={child.id}
-                  href={child.link} 
+                  to={child.link} 
                   className="block px-2 py-1 hover:bg-gray-100 rounded"
                 >
                   {child.label}
-                </a>
+                </NavLink>
               ))}
             </div>
           )}

@@ -31,6 +31,7 @@ const HeaderContent = () => {
           <button
             aria-label="Account"
             className="flex items-center space-x-1 transition-colors hover:text-blue-600 cursor-pointer"
+            onClick={()=>navigate('/account')}
           >
             <svg
               viewBox="0 0 48 48"

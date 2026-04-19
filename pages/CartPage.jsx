@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import { CartContext, CartProvider } from '../context/CartContext';
+import ProductCard, { ProductNewCard } from '../components/ProductCard';
 
 const CartPage = () => {
 
@@ -8,11 +9,15 @@ const CartPage = () => {
   
   return (
     <div>
+      <div className='grid grid-cols-3'>
      {cart.map((item)=>
      <div key={item.id}>
-     <p>{item.title}</p>
+      <img src=''alt={item.alt} />
+     {/* <p>{item.title}</p> */}
+     <ProductNewCard key={item.id} product={item} />
      </div>
     )}
+    </div>
     </div>
   )
 }
