@@ -9,6 +9,8 @@ import CartPage from '../pages/CartPage';
 import Header from '../components/Header';
 import Account from '../pages/Account';
 import NotFound from '../pages/NotFound';
+import useCounter from '../custom-hooks/useCounter';
+import useToggle from '../custom-hooks/useToggle';
 
 
 const router=createBrowserRouter([
@@ -30,16 +32,17 @@ const router=createBrowserRouter([
   }
 ])
 function App() {
-  // const [count, setCount] = useState(0)
+  const {count, Increment} = useCounter(10);
+  const [isOpen, toggle]=useToggle(false);
 
   return (
     <CartProvider>
       <RouterProvider router={router} />
+      <h1>{count}</h1>
+      <button onClick={Increment}>+</button>
+<button onClick={toggle}>{isOpen ? "opem" : "close"}</button>
     </CartProvider>
   )
 }
 
 export default App;
-
-//Implement complex forms and validations using Formik.
-
